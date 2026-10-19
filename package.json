@@ -1,5 +1,5 @@
 {
-  "name": "macron",
+  "name": "Macroni",
   "version": "1.0.0",
   "description": "Minimal macOS GUI for managing cron jobs, powered by Electrobun",
   "scripts": {
@@ -7,7 +7,7 @@
     "dev": "bun run css && electrobun dev",
     "build": "bun run css && electrobun build",
     "start": "bun run build && bun run dev",
-    "install:app": "cp -rv ./build/stable-macos-arm64/macron.app /Applications/"
+    "install:app": "cp -rv ./build/stable-macos-arm64/Macroni.app /Applications/"
   },
   "dependencies": {
     "crontab": "^1.3.0",

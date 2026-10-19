@@ -8,8 +8,8 @@ import { Loader2 } from "lucide-react";
 
 declare global {
   interface Window {
-    __macronCreateJob?: () => void;
-    __macronRefreshJobs?: () => void;
+    __MacroniCreateJob?: () => void;
+    __MacroniRefreshJobs?: () => void;
   }
 }
 
@@ -82,12 +82,12 @@ export function App() {
     loadJobs();
 
     // Register native menu shortcuts
-    window.__macronCreateJob = handleCreateNew;
-    window.__macronRefreshJobs = () => loadJobs(selectedJob?.id);
+    window.__MacroniCreateJob = handleCreateNew;
+    window.__MacroniRefreshJobs = () => loadJobs(selectedJob?.id);
 
     return () => {
-      delete window.__macronCreateJob;
-      delete window.__macronRefreshJobs;
+      delete window.__MacroniCreateJob;
+      delete window.__MacroniRefreshJobs;
     };
   }, [loadJobs, handleCreateNew, selectedJob?.id]);
 

@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "macron",
+      "name": "Macroni",
       "dependencies": {
         "crontab": "^1.3.0",
         "electrobun": "latest",

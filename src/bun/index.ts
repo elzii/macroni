@@ -45,7 +45,7 @@ const server = Bun.serve({
         headers,
       });
     } catch (err: any) {
-      console.error("[Macron API Error]", err);
+      console.error("[Macroni API Error]", err);
       return new Response(
         JSON.stringify({ success: false, error: err?.message || String(err) }),
         { status: 500, headers }
@@ -54,23 +54,23 @@ const server = Bun.serve({
   },
 });
 
-console.log(`[Macron Backend] Local API bridge running on http://127.0.0.1:${server.port}`);
+console.log(`[Macroni Backend] Local API bridge running on http://127.0.0.1:${server.port}`);
 
 // Application Menu
 ApplicationMenu.setApplicationMenu([
   {
-    label: "Macron",
+    label: "Macroni",
     submenu: [
       {
-        label: "About Macron",
+        label: "About Macroni",
         action: "about",
       },
       { type: "separator" },
-      { label: "Hide Macron", role: "hide", accelerator: "h" },
+      { label: "Hide Macroni", role: "hide", accelerator: "h" },
       { label: "Hide Others", role: "hideOthers" },
       { label: "Show All", role: "showAll" },
       { type: "separator" },
-      { label: "Quit Macron", role: "quit", accelerator: "q" },
+      { label: "Quit Macroni", role: "quit", accelerator: "q" },
     ],
   },
   {
@@ -113,7 +113,7 @@ ApplicationMenu.setApplicationMenu([
 
 // Main window creation
 const mainWindow = new BrowserWindow({
-  title: "macron",
+  title: "Macroni",
   url: "views://mainview/index.html",
   frame: {
     width: 820,
@@ -129,10 +129,10 @@ ApplicationMenu.on("application-menu-clicked", (event: any) => {
 
   if (action === "create-job") {
     // Notify webview to create new job
-    mainWindow.executeJavascript("window.__macronCreateJob && window.__macronCreateJob();");
+    mainWindow.executeJavascript("window.__MacroniCreateJob && window.__MacroniCreateJob();");
   } else if (action === "refresh-jobs") {
-    mainWindow.executeJavascript("window.__macronRefreshJobs && window.__macronRefreshJobs();");
+    mainWindow.executeJavascript("window.__MacroniRefreshJobs && window.__MacroniRefreshJobs();");
   }
 });
 
-console.log("[Macron] Started with Electrobun!");
+console.log("[Macroni] Started with Electrobun!");

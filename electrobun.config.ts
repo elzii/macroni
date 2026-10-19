@@ -2,8 +2,8 @@ import type { ElectrobunConfig } from "electrobun";
 
 export default {
   app: {
-    name: "macron",
-    identifier: "com.owenmelbourne.macron",
+    name: "Macroni",
+    identifier: "org.zizzo.Macroni",
     version: "1.0.0",
   },
   build: {

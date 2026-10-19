@@ -1,8 +1,8 @@
-# Macron — Project Summary & Architecture Guide
+# Macroni — Project Summary & Architecture Guide
 
 ## Overview
 
-**Macron** is a minimal macOS desktop GUI for managing `crontab` jobs. Originally created 6 years ago as an Electron application using Webpack, Babel, and React 16, it has now been modernized into a fast desktop application powered by **Electrobun**, **Bun**, **React 19**, **TypeScript**, and **Tailwind CSS v4**.
+**Macroni** is a minimal macOS desktop GUI for managing `crontab` jobs. Originally created 6 years ago as an Electron application using Webpack, Babel, and React 16, it has now been modernized into a fast desktop application powered by **Electrobun**, **Bun**, **React 19**, **TypeScript**, and **Tailwind CSS v4**.
 
 The application allows users to:
 1. Inspect system `crontab` jobs in a reactive sidebar with real-time search.
@@ -25,7 +25,7 @@ The application allows users to:
 ### 2. Migration to Electrobun
 - **Git Branch:** Switched to branch `electrobun`.
 - **Electrobun & Hutch Configuration:**
-  - `electrobun.config.ts`: Configured metadata (`macron`, `com.owenmelbourne.macron`), native macOS window options, and asset mapping.
+  - `electrobun.config.ts`: Configured metadata (`Macroni`, `com.owenmelbourne.Macroni`), native macOS window options, and asset mapping.
   - `hutch.config.ts`: Configured dev and stable build scripts.
   - `assets/appIcon.iconset`: Generated native macOS app icons from `resources/icon.icns`.
 - **Bun Backend (`src/bun/`):**
@@ -44,11 +44,11 @@ The application allows users to:
 
 - **TypeScript Typecheck:** `bunx tsc --noEmit --skipLibCheck` passed with 0 errors.
 - **CSS Compilation:** Built with `@tailwindcss/cli` in ~35ms.
-- **Development Build:** `bun run build` generated `build/dev-macos-arm64/macron-dev.app`.
+- **Development Build:** `bun run build` generated `build/dev-macos-arm64/Macroni-dev.app`.
 - **Release Build:** `bunx electrobun build --env=stable` generated:
-  - macOS DMG installer: `artifacts/macos-arm64-macron.dmg` (22 MB)
-  - Production app bundle: `build/stable-macos-arm64/macron.app` (~67 MB)
-  - Compressed update bundle: `artifacts/stable-macos-arm64-macron.app.tar.zst` (21 MB)
+  - macOS DMG installer: `artifacts/macos-arm64-Macroni.dmg` (22 MB)
+  - Production app bundle: `build/stable-macos-arm64/Macroni.app` (~67 MB)
+  - Compressed update bundle: `artifacts/stable-macos-arm64-Macroni.app.tar.zst` (21 MB)
   - Update manifest: `artifacts/stable-macos-arm64-update.json`
 
 ---
@@ -69,7 +69,7 @@ bun run build
 bun run css && bunx electrobun build --env=stable
 
 # Install locally to /Applications
-cp -rv ./build/stable-macos-arm64/macron.app /Applications/
+cp -rv ./build/stable-macos-arm64/Macroni.app /Applications/
 ```
 
 ---
@@ -130,7 +130,7 @@ jobs:
 
       - name: Ad-hoc code sign application bundle and DMG
         run: |
-          codesign --force --deep -s - "./build/stable-macos-arm64/macron.app"
+          codesign --force --deep -s - "./build/stable-macos-arm64/Macroni.app"
           for dmg in artifacts/*.dmg build/stable-macos-arm64/*.dmg; do
             if [ -f "$dmg" ]; then
               echo "Signing disk image: $dmg"
@@ -141,7 +141,7 @@ jobs:
       - name: Create ZIP archive of application bundle
         run: |
           cd build/stable-macos-arm64
-          ditto -c -k --keepParent "macron.app" "../../artifacts/macron-macos-arm64.zip"
+          ditto -c -k --keepParent "Macroni.app" "../../artifacts/Macroni-macos-arm64.zip"
           cd ../..
 
       - name: Verify build artifacts
@@ -162,5 +162,5 @@ jobs:
 
 ### Action Items for Release Automation:
 - [ ] Create `.github/workflows/release.yml` with the workflow above.
-- [ ] In `electrobun.config.ts`, configure `release.baseUrl` (e.g., `https://github.com/<owner>/macron/releases/latest/download`) to enable delta patches and automatic OTA updates.
+- [ ] In `electrobun.config.ts`, configure `release.baseUrl` (e.g., `https://github.com/<owner>/Macroni/releases/latest/download`) to enable delta patches and automatic OTA updates.
 - [ ] Add a version bump helper script (e.g. `scripts/release.ts`) to automate updating `package.json`, `electrobun.config.ts`, git committing, tagging, and pushing.

@@ -86,7 +86,7 @@ export function Sidebar({ jobs, selectedJob, onSelect, onCreate }: SidebarProps)
 
       {/* Footer info */}
       <div className="p-3 border-t border-neutral-800/80 text-[11px] text-neutral-500 flex items-center justify-between">
-        <span>macron</span>
+        <span>Macroni</span>
         <span>{jobs.length} {jobs.length === 1 ? "job" : "jobs"}</span>
       </div>
     </aside>

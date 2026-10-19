@@ -1,13 +1,13 @@
 {
-  "name": "macron",
-  "productName": "macron",
+  "name": "Macroni",
+  "productName": "Macroni",
   "version": "1.0.0",
   "description": "Minimal macOS GUI for managing cron jobs.",
   "main": "./main.prod.js",
   "author": {
     "name": "Owen Melbourne",
     "email": "owenmelbz@gmail.com",
-    "url": "https://github.com/owenmelbz/macron"
+    "url": "https://github.com/owenmelbz/Macroni"
   },
   "scripts": {
     "electron-rebuild": "node -r ../internals/scripts/BabelRegister.js ../internals/scripts/ElectronRebuild.js",
